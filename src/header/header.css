@@ -1,0 +1,19 @@
+.Header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-style: double;
+    border-color: cadetblue;
+}
+
+.MinuteDatingLink {
+    color: cadetblue;
+    text-decoration: none;
+    font-size: 200%;
+    font-weight: bold; 
+}
+
+.LoginLink {
+    color: cadetblue;
+}
