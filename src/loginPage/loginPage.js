@@ -1,12 +1,13 @@
 import React from 'react';
 import './loginPage.css';
-import { UserForm } from './userForm';
+import { RegisterForm } from './registerForm';
+import { LoginForm } from './loginForm';
 
 export function LoginPage() {
   return (
     <div className="LoginPage">
-        <UserForm title="New User"> Register </UserForm>
-        <UserForm title="Log In"> Login </UserForm>
+        <RegisterForm />
+        <LoginForm />
     </div>
   );
 }
