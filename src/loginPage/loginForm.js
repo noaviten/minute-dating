@@ -4,24 +4,29 @@ import { UserForm } from './userForm';
 import { useAction } from '../reduxLoggedUser/action';
 import { userActions } from '../reduxLoggedUser/userRedux';
 import { isUserExistAndPasswordCorrect } from '../server/dataManager';
+import {useHistory} from 'react-router-dom';
+import {getLoggedInUserProfile} from '../server/dataManager';
 
 export function LoginForm() {
-  const addExistingUserRedux = useAction(userActions.addExistingUser);
+  const saveUserProfileRedux = useAction(userActions.saveUserProfile);
+  const history = useHistory();
 
   const addExistingUser = async (userName, password) => {
     const canLoginUserResponse = await isUserExistAndPasswordCorrect(userName, password);
     if(canLoginUserResponse){
-      addExistingUserRedux({userName, password});
-      return true;
+      const currentUser = getLoggedInUserProfile(userName);
+      const {name, age, gender, lookingFor} = currentUser;
+      saveUserProfileRedux({userName, password, name, age, gender, lookingFor});
+      history.push("/");
     }
-    return false;
+    else{
+      alert("User name not exist or the password is incorrect");
+    }
   };
-
-  const alertMsg = "User name not exist or the password is incorrect";
 
   return (
     <div className="LoginForm">
-        <UserForm title="Log In" submitUser={addExistingUser} alertMessage={alertMsg}> Login </UserForm>
+        <UserForm title="Log In" submitUser={addExistingUser}> Login </UserForm>
     </div>
   );
 }
