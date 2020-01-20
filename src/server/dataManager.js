@@ -6,7 +6,7 @@ async function getUsers(){
     return getUsers ? getUsers.users : [];
 }
 
-export async function isUserExist(userName){
+async function isUserExist(userName){
     const users = await getUsers();
     return users.some((user) => user.userName === userName);
 }
@@ -48,5 +48,19 @@ export async function addNewuser(userName, password){
         return true;
     }
     return false;
+}
+
+export async function updateUserProfile(userName, name, age, gender, lookingFor){
+    const users = await getUsers();
+    const currentUser = users.find((user) => user.userName === userName);
+    if(currentUser){
+        currentUser.name = name;
+        currentUser.age = age;
+        currentUser.gender = gender;
+        currentUser.lookingFor = lookingFor;
+        setUsersJsonFromServer({users});
+        return currentUser;
+    }
+    return null;
 }
 

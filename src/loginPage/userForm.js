@@ -1,25 +1,17 @@
 import React, {useState} from 'react';
 import './loginPage.css';
-import {useHistory} from 'react-router-dom';
 
-const isValid = (userName, password) => userName.length > 0 && password.length > 0; 
-
-export function UserForm({children, title, submitUser, alertMessage}) {
+export function UserForm({children, title, submitUser}) {
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
-    const history = useHistory();
 
-    const  submitValidUser = async (userName, password) => {
-        if (isValid(userName,password)) {
+    const isValid = () => userName.length > 0 && password.length > 0; 
+
+    const submitValidUser = async () => {
+        if (isValid()) {
             setUserName("");
             setPassword("");
-            const isUserSubmitted = await submitUser(userName, password);
-            if(isUserSubmitted){
-                history.push("/");
-            }
-            else{
-                alert(alertMessage);
-            }
+            await submitUser(userName, password);
         }
       }
 
@@ -27,7 +19,7 @@ export function UserForm({children, title, submitUser, alertMessage}) {
         <form className="UserForm"
         onSubmit={e => {
             e.preventDefault();
-            submitValidUser(userName, password);
+            submitValidUser();
         }}
         >
             <h2>{title}</h2>

@@ -5,12 +5,11 @@ import { useSelector } from "react-redux";
 
 function loginLinkOrUserName(user){
         if(user.userName){
-            return <h3>{`Hello, ${user.userName}`}</h3>
+            return <Link to="/profile" className = "LoginLink">{`Hello, ${user.userName}`}</Link>
         }
         else{
             return (<Link to="/login" className = "LoginLink">Login</Link>);
         }
-        
 }
 
 export function Header() {
