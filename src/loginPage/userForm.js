@@ -4,17 +4,22 @@ import {useHistory} from 'react-router-dom';
 
 const isValid = (userName, password) => userName.length > 0 && password.length > 0; 
 
-export function UserForm({children, title, submitUser}) {
+export function UserForm({children, title, submitUser, alertMessage}) {
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const history = useHistory();
 
-    const submitValidUser = (userName, password) => {
+    const  submitValidUser = async (userName, password) => {
         if (isValid(userName,password)) {
-            submitUser({userName, password});
             setUserName("");
             setPassword("");
-            history.push("/");
+            const isUserSubmitted = await submitUser(userName, password);
+            if(isUserSubmitted){
+                history.push("/");
+            }
+            else{
+                alert(alertMessage);
+            }
         }
       }
 
