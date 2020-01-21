@@ -8,6 +8,40 @@
 .LoggedHomePage {
     display: flex;
     justify-content: center;
+    align-items: flex-start;
+    padding: 10px;
+}
+
+.ListFakeComp{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 300px;
+    margin: 50px;
+}
+
+.ListFake {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 10px;
+    padding: 10px;
+    width: 260px;
+}
+
+.FakeUser {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     padding: 10px;
+    width: 240px;
+}
+
+.profilePic {
+    height: 70px;
+    width: 70px;
+}
+
+.ListTitle{
+    color: cadetblue;
 }

@@ -4,6 +4,7 @@ import './profliePage.css';
 import { useAction } from '../reduxLoggedUser/action';
 import { userActions } from '../reduxLoggedUser/userRedux';
 import { updateUserProfile } from '../server/usersDataManager';
+import {useHistory} from 'react-router-dom';
 
 export function ProfilePage() {
     const user = useSelector(({ user }) => user);
@@ -17,6 +18,7 @@ export function ProfilePage() {
         name.length > 0 && age > 0; 
 
     const saveUserProfileRedux = useAction(userActions.saveUserProfile);
+    const history = useHistory();
 
     const submitValidProfile = async () => {
         if (isValid()) {
@@ -29,9 +31,10 @@ export function ProfilePage() {
                     gender: currentUser.gender, 
                     lookingFor: currentUser.lookingFor
                 });
+                history.push("/");
             }
         }
-      }
+    }
 
     return (
         <div className="ProfilePage">

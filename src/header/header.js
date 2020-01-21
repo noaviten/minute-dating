@@ -17,8 +17,10 @@ export function Header() {
     const user = useSelector(({ user }) => user);
     return (
         <div className="Header">
-            <Link to="/" className = "MinuteDatingLink">Minute Dating</Link>
-            <img className="Logo" src={heart} alt="heartLogo" />
+            <div className="LogoLink">
+                <Link to="/" className = "MinuteDatingLink">Minute Dating</Link>
+                <img className="Logo" src={heart} alt="heartLogo" />
+            </div>
             {loginLinkOrUserName(user)}
         </div>
     );

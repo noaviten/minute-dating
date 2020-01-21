@@ -14,7 +14,7 @@ export function LoginForm() {
   const addExistingUser = async (userName, password) => {
     const canLoginUserResponse = await isUserExistAndPasswordCorrect(userName, password);
     if(canLoginUserResponse){
-      const currentUser = getLoggedInUserProfile(userName);
+      const currentUser = await getLoggedInUserProfile(userName);
       const {name, age, gender, lookingFor} = currentUser;
       saveUserProfileRedux({userName, password, name, age, gender, lookingFor});
       history.push("/");

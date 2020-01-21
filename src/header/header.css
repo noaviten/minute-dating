@@ -9,13 +9,22 @@
     padding: 10px;
     border-style: double;
     border-color: cadetblue;
+    background-color: white;
 }
 
 .MinuteDatingLink {
+    display: flex;
+    justify-content: center;
     color: cadetblue;
     text-decoration: none;
     font-size: 200%;
     font-weight: bold; 
+}
+
+.LogoLink{
+    display: flex;
+    justify-content: space-between;
+    width: 280px;  
 }
 
 .LoginLink {

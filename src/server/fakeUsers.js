@@ -1,6 +1,6 @@
-import Ape, { name, age, image, date, arrayOf } from 'ape-mock';
-
-
+import Ape, { name, age, date, arrayOf } from 'ape-mock';
+import malePic from '../male.png';
+import femalePic from '../female.png';
 
 export function createFakeUsers(){
     let fakeUsers = [];
@@ -10,7 +10,8 @@ export function createFakeUsers(){
             firstName: name().male(),
             lastName: name().lastName(),
             age: age().adult(),
-            image: image().width(100).height(50),
+            gender: "Male",
+            image: malePic,
             date: date().random().startYearsAgo(1)
         }).random(10, 10)
     });
@@ -20,7 +21,8 @@ export function createFakeUsers(){
             firstName: name().female(),
             lastName: name().lastName(),
             age: age().adult(),
-            image: image().width(100).height(50),
+            gender: "Female",
+            image: femalePic,
             date: date().random().startYearsAgo(1)
         }).random(10, 10)
     });
