@@ -3,9 +3,9 @@ import './loginPage.css';
 import { UserForm } from './userForm';
 import { useAction } from '../reduxLoggedUser/action';
 import { userActions } from '../reduxLoggedUser/userRedux';
-import { isUserExistAndPasswordCorrect } from '../server/dataManager';
+import { isUserExistAndPasswordCorrect } from '../server/usersDataManager';
 import {useHistory} from 'react-router-dom';
-import {getLoggedInUserProfile} from '../server/dataManager';
+import {getLoggedInUserProfile} from '../server/usersDataManager';
 
 export function LoginForm() {
   const saveUserProfileRedux = useAction(userActions.saveUserProfile);

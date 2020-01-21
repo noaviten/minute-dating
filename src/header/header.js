@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import './header.css';
-import { useSelector } from "react-redux";
+import { useSelector } from "react-redux"
+import heart from '../heart.png';
 
 function loginLinkOrUserName(user){
         if(user.userName){
@@ -17,6 +18,7 @@ export function Header() {
     return (
         <div className="Header">
             <Link to="/" className = "MinuteDatingLink">Minute Dating</Link>
+            <img className="Logo" src={heart} alt="heartLogo" />
             {loginLinkOrUserName(user)}
         </div>
     );
