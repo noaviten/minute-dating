@@ -4,10 +4,10 @@ import { createFakeUsers } from './fakeUsers';
 
 export async function getFakeUsers(){
     const getFakeUsers = await getFakeUsersJsonFromServer();
-    if(getFakeUsers.fakeUsers){
-        return getFakeUsers.fakeUsers;
+    if(getFakeUsers){
+        return getFakeUsers;
     }
-    else{
+    else{     
         const fakeUsers = createFakeUsers();
         await setFakeUsersJsonFromServer(fakeUsers);
 
@@ -17,7 +17,7 @@ export async function getFakeUsers(){
 
 export async function recentlyJoined(){
     const fakeUsers = await getFakeUsers();
-    return fakeUsers.slice(0,4);
+    return fakeUsers.slice(0,6);
 }
 
 export async function recommendedForYou(lookingFor){
