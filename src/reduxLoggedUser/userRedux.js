@@ -16,7 +16,7 @@ const { reducer, actions } = createSlice({
   name: "user",
   initialState: USER,
   reducers: {
-    saveUserProfile (_, { payload : { userName, password, name, age, gender, lookingFor }}) {
+    saveUserProfile (user, { payload : { userName, password, name, age, gender, lookingFor }}) {
         return createUser(userName, password, name, age, gender, lookingFor);
     }
   }

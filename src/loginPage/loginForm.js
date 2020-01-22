@@ -3,9 +3,9 @@ import './loginPage.css';
 import { UserForm } from './userForm';
 import { useAction } from '../reduxLoggedUser/action';
 import { userActions } from '../reduxLoggedUser/userRedux';
-import { isUserExistAndPasswordCorrect } from '../server/dataManager';
+import { isUserExistAndPasswordCorrect } from '../server/usersDataManager';
 import {useHistory} from 'react-router-dom';
-import {getLoggedInUserProfile} from '../server/dataManager';
+import {getLoggedInUserProfile} from '../server/usersDataManager';
 
 export function LoginForm() {
   const saveUserProfileRedux = useAction(userActions.saveUserProfile);
@@ -14,7 +14,7 @@ export function LoginForm() {
   const addExistingUser = async (userName, password) => {
     const canLoginUserResponse = await isUserExistAndPasswordCorrect(userName, password);
     if(canLoginUserResponse){
-      const currentUser = getLoggedInUserProfile(userName);
+      const currentUser = await getLoggedInUserProfile(userName);
       const {name, age, gender, lookingFor} = currentUser;
       saveUserProfileRedux({userName, password, name, age, gender, lookingFor});
       history.push("/");

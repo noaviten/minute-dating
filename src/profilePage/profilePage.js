@@ -3,7 +3,8 @@ import { useSelector } from 'react-redux';
 import './profliePage.css';
 import { useAction } from '../reduxLoggedUser/action';
 import { userActions } from '../reduxLoggedUser/userRedux';
-import { updateUserProfile } from '../server/dataManager';
+import { updateUserProfile } from '../server/usersDataManager';
+import {useHistory} from 'react-router-dom';
 
 export function ProfilePage() {
     const user = useSelector(({ user }) => user);
@@ -14,9 +15,10 @@ export function ProfilePage() {
     const {userName} = user;
 
     const isValid = () =>
-        name.length > 0 && age > 0 && gender.length > 0 && lookingFor.length > 0; 
+        name.length > 0 && age > 0; 
 
     const saveUserProfileRedux = useAction(userActions.saveUserProfile);
+    const history = useHistory();
 
     const submitValidProfile = async () => {
         if (isValid()) {
@@ -29,9 +31,10 @@ export function ProfilePage() {
                     gender: currentUser.gender, 
                     lookingFor: currentUser.lookingFor
                 });
+                history.push("/");
             }
         }
-      }
+    }
 
     return (
         <div className="ProfilePage">
@@ -60,6 +63,7 @@ export function ProfilePage() {
                 <div className="DivProfileInput">
                     Gender:
                     <select className="PorfileInput" value={gender} required onChange={e => setGender(e.target.value)}>
+                        <option value="">Select an option</option>
                         <option value="Female">Female</option>
                         <option value="Male">Male</option>
                     </select>
@@ -68,6 +72,7 @@ export function ProfilePage() {
                 <div className="DivProfileInput">
                     Looking For:
                     <select className="PorfileInput" value={lookingFor} required onChange={e => setLookingFor(e.target.value)}>
+                        <option value="">Select an option</option>
                         <option value="Female">Female</option>
                         <option value="Male">Male</option>
                         <option value="female and Male">Female and Male</option>

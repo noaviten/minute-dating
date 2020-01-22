@@ -3,7 +3,7 @@ import './loginPage.css';
 import { UserForm } from './userForm';
 import { useAction } from '../reduxLoggedUser/action';
 import { userActions } from '../reduxLoggedUser/userRedux';
-import { addNewuser } from '../server/dataManager';
+import { addNewuser } from '../server/usersDataManager';
 import {useHistory} from 'react-router-dom';
 
 export function RegisterForm() {

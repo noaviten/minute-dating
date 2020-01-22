@@ -1,11 +1,27 @@
 import { createNewPromise } from './utils';
 
+async function getItemJsonFromServer(key){
+    const item = window.localStorage.getItem(key);
+    return createNewPromise(JSON.parse(item));
+}
+
+async function setItemJsonFromServer(key, item){
+    window.localStorage.setItem(key, JSON.stringify(item));
+    return createNewPromise(200);
+}
+
 export async function getUsersJsonFromServer(){
-    const users = window.localStorage.getItem('users');
-    return createNewPromise(JSON.parse(users));
+    return getItemJsonFromServer('users');
 }
 
 export async function setUsersJsonFromServer(users){
-    window.localStorage.setItem('users', JSON.stringify(users));
-    return createNewPromise(200);
+    return setItemJsonFromServer('users', users);
+}
+
+export async function getFakeUsersJsonFromServer(){
+    return getItemJsonFromServer('fakeUsers');
+}
+
+export async function setFakeUsersJsonFromServer(fakeUsers){
+    return setItemJsonFromServer('fakeUsers', fakeUsers);
 }

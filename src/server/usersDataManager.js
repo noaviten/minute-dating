@@ -58,9 +58,8 @@ export async function updateUserProfile(userName, name, age, gender, lookingFor)
         currentUser.age = age;
         currentUser.gender = gender;
         currentUser.lookingFor = lookingFor;
-        setUsersJsonFromServer({users});
+        await setUsersJsonFromServer({users});
         return currentUser;
     }
     return null;
 }
-
