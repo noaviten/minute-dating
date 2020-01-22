@@ -1,0 +1,74 @@
+.FakeUserPage {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px;
+}
+
+.userProfilePic{
+    height: 220px;
+    width: 220px;
+}
+
+.FakeUserProfile{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border-style: double;
+    border-color: cadetblue;
+    width: 370px;
+    height: 370px;
+}
+
+.Details{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 7px;
+}
+
+.LikeButton{
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: small;
+    margin: 7px;
+    width: 120px;
+    height: 30px;
+    font-size: medium;
+}
+
+.IsCreep{
+    display: inline;
+    font-size: 17px;
+    margin-left: -280px;
+}
+
+.arrow-right {
+    width: 0; 
+    height: 0; 
+    border-top: 30px solid transparent;
+    border-bottom: 30px solid transparent;
+    border-left: 30px solid cadetblue;
+    margin: 20px;
+    cursor: pointer;
+  }
+  
+  .arrow-left {
+    width: 0; 
+    height: 0; 
+    border-top: 30px solid transparent;
+    border-bottom: 30px solid transparent; 
+    border-right: 30px solid cadetblue; 
+    margin: 20px;
+    cursor: pointer;
+  }
+
+  .DivProfilePic{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }

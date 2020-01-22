@@ -20,7 +20,7 @@ function createFakeUsersList(users){
                 firstName={user.firstName}
                 lastName={user.lastName}
                 age={user.age}
-                image={user.image}
+                image={user.profileImage}
             />
             ))}
         </ul>

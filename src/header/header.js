@@ -6,7 +6,7 @@ import heart from '../heart.png';
 
 function loginLinkOrUserName(user){
         if(user.userName){
-            return <Link to="/profile" className = "LoginLink">{`Hello, ${user.userName}`}</Link>
+            return <Link to="/myProfile" className = "LoginLink">{`Hello, ${user.userName}`}</Link>
         }
         else{
             return (<Link to="/login" className = "LoginLink">Login</Link>);
